@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Images";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Images For</h2>
+
+@{
+    Html.BeginForm("Images", "Prices", FormMethod.Post, new { enctype = "multipart/form-data" });
+   
+    foreach (var p in @ViewBag.pro)
+    {
+        <h2>Add image For @p.pname</h2>
+        <table>
+            <tr>
+                <td>Select Images:</td>
+                <input type="hidden" name="id" value="@p.pid" />
+                <td><input type="file" name="file" /></td>
+                <td><input type="submit" value="Save As" /></td>
+                <td>Select Images:</td>
+            </tr>
+        </table>
+    }
+}
+<hr/>
+<div>
+    @foreach(var i in ViewBag.imgs)
+            {
+                <img src="~/Content/FE/img/@i.iname" width="100" height="100" />
+            }
+</div>
+
+
+
+

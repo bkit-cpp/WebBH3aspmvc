@@ -1,0 +1,56 @@
+﻿@model WebBH3aspmvc.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+<table>
+    @{
+        Html.BeginForm("Register", "Admin", FormMethod.Post);
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.uname)
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.uname)
+            </td>
+        </tr>
+        <tr>@Html.ValidationMessageFor(a => a.uname)</tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.upass)
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.upass)
+            </td>
+        </tr>
+        <tr>@Html.ValidationMessageFor(a => a.upass)</tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.ugmail)
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.ugmail)
+            </td>
+        </tr>
+        <tr>@Html.ValidationMessageFor(a => a.ugmail)</tr>
+        <tr>
+            <td>
+                @if (ViewBag.error != null)
+                {
+                    <span class="badge badge-danger">@ViewBag.error</span>
+                }
+            </td>
+            <td>
+                <input type="submit" value="Register" />
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+

@@ -1,0 +1,43 @@
+﻿@model WebBH3aspmvc.ShopBanHangEntities2
+@{
+    ViewBag.Title = "cart";
+    Layout = "~/Views/Shared/_FE.cshtml";
+}
+
+<h2>Your Cart</h2>
+<table>
+    @{
+        ShopBanHangEntities2 giohang = new ShopBanHangEntities2();
+        var it = giohang.Prices.ToList();
+        foreach (var item in ViewBag.c)
+        {
+
+            foreach (var i in it)
+            {
+                if (i.pid == item.iid)
+                {
+                    var amt = item.iqty * i.pprice;
+                    <tr>
+                        <td>
+                            @i.pname
+                        </td>
+                        <td>
+                            @i.pprice
+                        </td>
+                        <td>
+                            @item.iqty
+                        </td>
+                        <td>@amt</td>
+
+                    </tr>
+                }
+
+            }
+
+
+
+        }
+    }
+
+    }
+</table>

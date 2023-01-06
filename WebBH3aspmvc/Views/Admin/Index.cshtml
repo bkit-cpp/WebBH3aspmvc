@@ -1,0 +1,36 @@
+﻿@model WebBH3aspmvc.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<h2>Login Here</h2>
+<table>
+    @{
+        Html.BeginForm("Index", "Admin", FormMethod.Post);
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.uname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                PassWord
+            </td>
+            <td>
+                @Html.PasswordFor(a => a.upass)
+            </td>
+        </tr>
+        <tr>
+            <td>@ViewBag.msg</td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+        </tr>
+    }
+</table>
